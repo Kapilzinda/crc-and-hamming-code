@@ -209,13 +209,13 @@ int hammingcorrection(string data, string &ans){
 	cout << "codeword  ---->   result" << endl;
 	
 	for(int i = 0; i < size/7; i++){
-		dataint[0] = data[i*7 + 6] - '0';
-		dataint[1] = data[i*7 + 5] - '0';
-		dataint[2] = data[i*7 + 4] - '0';
+		dataint[0] = data[i*7] - '0';
+		dataint[1] = data[i*7 + 1] - '0';
+		dataint[2] = data[i*7 + 2] - '0';
 		dataint[3] = data[i*7 + 3] - '0';
-		dataint[4] = data[i*7 + 2] - '0';
-		dataint[5] = data[i*7 + 1] - '0';
-		dataint[6] = data[i*7] - '0';
+		dataint[4] = data[i*7 + 4] - '0';
+		dataint[5] = data[i*7 + 5] - '0';
+		dataint[6] = data[i*7 + 6] - '0';
 		
 		c1=dataint[6]^dataint[4]^dataint[2]^dataint[0];
     	c2=dataint[5]^dataint[4]^dataint[1]^dataint[0];
@@ -229,12 +229,12 @@ int hammingcorrection(string data, string &ans){
     		dataword += (dataint[1] + '0');
     		dataword += (dataint[2] + '0');
     		dataword += (dataint[4] + '0');
-        	cout<<dataint[6]<<dataint[5]<<dataint[4]<<dataint[3]<<dataint[2]<<dataint[1]<<dataint[0]<<"   ---->    No error in transmission and dataword is "<<dataword<<endl;
+        	cout<<dataint[0]<<dataint[1]<<dataint[2]<<dataint[3]<<dataint[4]<<dataint[5]<<dataint[6]<<"   ---->    No error in transmission and dataword is "<<dataword<<endl;
     	}
     	
     	else{
     		terror++;
-    		cout<<dataint[6]<<dataint[5]<<dataint[4]<<dataint[3]<<dataint[2]<<dataint[1]<<dataint[0]<<"   ---->    error at "<<c<<" bit and correct codeword is ";
+    		cout<<dataint[0]<<dataint[1]<<dataint[2]<<dataint[3]<<dataint[4]<<dataint[5]<<dataint[6]<<"   ---->    error at "<<c<<" bit and correct codeword is ";
     		if(dataint[7-c]==0)
             	dataint[7-c]=1;
         	else
@@ -245,7 +245,7 @@ int hammingcorrection(string data, string &ans){
     		dataword += (dataint[2] + '0');
     		dataword += (dataint[4] + '0');
     		
-    		cout<<dataint[6]<<dataint[5]<<dataint[4]<<dataint[3]<<dataint[2]<<dataint[1]<<dataint[0]<<" and dataword -- "<<dataword<<endl;
+    		cout<<dataint[0]<<dataint[1]<<dataint[2]<<dataint[3]<<dataint[4]<<dataint[5]<<dataint[6]<<" and dataword -- "<<dataword<<endl;
 		}
 		ans += dataword;
 	}
